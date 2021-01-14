@@ -7,11 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {{ $styles() }}
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -29,8 +27,12 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                {{ $content }}
             </main>
+
+            {{ $scripts() }}
+
+            @stack('scripts')
         </div>
     </body>
 </html>
